@@ -1,0 +1,6 @@
+@import "./global.css";
+
+/* Custom styles can go here */
+.app {
+  @apply min-h-screen bg-gray-100 flex items-center justify-center;
+}
