@@ -8,9 +8,11 @@ if (require('electron-squirrel-startup')) {
   app.quit();
 }
 
-// function saveMasterPassword(masterPassword: string){
-//   passwordManager.savePassword(masterPassword)
-// }
+function saveMasterPassword(){
+  // passwordManager.savePassword(masterPassword)
+  console.log('SAVING MASTER PASSWORD')
+  return 'SAVED TO KEYTAR'
+}
 
 const createWindow = (): void => {
   // Create the browser window.
@@ -30,7 +32,7 @@ const createWindow = (): void => {
 };
 
 app.whenReady().then(() => {
-  // ipcMain.handle('masterPassword:save', saveMasterPassword)
+  ipcMain.handle('masterPassword:save', saveMasterPassword)
   createWindow()
   app.on('activate', function () {
     if (BrowserWindow.getAllWindows().length === 0) createWindow()

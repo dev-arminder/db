@@ -1,5 +1,6 @@
-import  React, {ChangeEvent} from "react"
-import { Flag, GalleryVerticalEnd, EyeOff, Eye, CircleAlert } from "lucide-react"
+import  React, {ChangeEvent, FormEvent} from "react"
+import { GalleryVerticalEnd, EyeOff, Eye, CircleAlert } from "lucide-react"
+import { useNavigate } from 'react-router-dom';
 
 import { cn, masterPasswordSchema } from "@/lib/utils"
 import { Button } from "@/components/ui/button"
@@ -10,6 +11,8 @@ import { Label } from "@/components/ui/label"
 export function LoginForm({ className, ...props }: React.ComponentPropsWithoutRef<"div">) {
   const [masterPassword, setMasterPassword] = React.useState('');
   const [showPassword, setShowPassword] = React.useState(false);
+  const navigate = useNavigate();
+
 
   const parsedPasswordResults = masterPasswordSchema.safeParse(masterPassword)
   const isSucceed = parsedPasswordResults.success;
@@ -23,14 +26,21 @@ export function LoginForm({ className, ...props }: React.ComponentPropsWithoutRe
     setShowPassword(!currentState);
   }; 
 
-  const handleClick = (e: ChangeEvent<HTMLInputElement>) => {
+  const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
     const updatedMasterPassword = e.target.value; 
     setMasterPassword(updatedMasterPassword)
   }
 
+  const handlePasswordSubmittion = async (e: FormEvent) => {
+    e.preventDefault();
+    console.log('Saving Pasword !!')
+    const temp = await window.electronAPI.saveMasterPassword()
+    console.log(temp)
+  }
+
   return (
     <div className={cn("flex flex-col gap-6", className)} {...props}>
-      <form>
+      <form onSubmit={(e) => handlePasswordSubmittion(e)}> 
         <div className="flex flex-col gap-6">
           <div className="flex flex-col items-center gap-2">
             <a href="#" className="flex flex-col items-center gap-2 font-medium">
@@ -52,7 +62,7 @@ export function LoginForm({ className, ...props }: React.ComponentPropsWithoutRe
                     ${errorMessage && `focus-visible:border-(--destructive) focus-visible:ring-(--destructive-light)`}
                     ${isSucceed && `focus-visible:border-(--constructive) focus-visible:ring-(--constructive-light)`}`
                   }
-                  onChange={(e) => handleClick(e)}
+                  onChange={(e) => handleChange(e)}
                   value={masterPassword}
                   required
                 />
