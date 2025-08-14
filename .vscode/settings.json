@@ -1,0 +1,38 @@
+{
+  // Use Prettier as the default formatter for all files
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+
+  // Format files automatically on save
+  "editor.formatOnSave": true,
+
+  // Ensure Prettier runs for specific languages (optional safety)
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[typescript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[javascriptreact]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[typescriptreact]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[json]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[css]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[html]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+
+  // Optional: Disable other formatters that might conflict
+
+  // Let Prettier use the project's local version instead of global
+  "prettier.prettierPath": "./node_modules/prettier/index.mjs",
+
+  // Optional: Ensure Prettier follows your project's .prettierrc
+  "prettier.requireConfig": true
+}

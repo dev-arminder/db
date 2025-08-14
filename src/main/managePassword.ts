@@ -1,12 +1,10 @@
-import keytar from 'keytar';
+import keytar from "keytar";
 
-const SERVICE = '0xDB'; 
-const ACCOUNT = 'masterPassword';
+const SERVICE = "0xDB";
+const ACCOUNT = "masterPassword";
 
-async function savePassword(masterPassword: string){
-    await keytar.setPassword(SERVICE, ACCOUNT, masterPassword);
+async function savePassword(masterPassword: string) {
+  await keytar.setPassword(SERVICE, ACCOUNT, masterPassword);
 }
 
-export {
-    savePassword
-}
+export { savePassword };

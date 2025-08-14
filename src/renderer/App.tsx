@@ -1,7 +1,7 @@
-import React from 'react';
-import { HashRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
-import LoginPage from '@/pages/loginPage';
-import DashboardPage from '@/pages/dashboarPage';
+import React from "react";
+import { HashRouter as Router, Routes, Route, Navigate } from "react-router-dom";
+import LoginPage from "@/pages/loginPage";
+import DashboardPage from "@/pages/dashboarPage";
 
 function App() {
   return (

@@ -6,4 +6,4 @@ updates:
       interval: "weekly" # daily | weekly | monthly
     open-pull-requests-limit: 5
     allow:
-      - dependency-type: "all"  # all | direct | indirect
+      - dependency-type: "all" # all | direct | indirect

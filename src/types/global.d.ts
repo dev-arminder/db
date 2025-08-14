@@ -1,10 +1,10 @@
 // global.d.ts
-export {}
+export {};
 
 declare global {
   interface Window {
     electronAPI: {
-       saveMasterPassword: () => string
-    }
+      saveMasterPassword: () => string;
+    };
   }
 }
